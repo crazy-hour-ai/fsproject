@@ -1,0 +1,64 @@
+.container  {
+    margin: 100px;
+    display: flex;
+    position: relative;
+    top:10px;
+}
+
+.flex-me {
+    display: inline-flex;
+    flex-flow: row wrap;
+    background: grey;
+  }
+
+  mat-card-header {
+    width:  100%;
+    margin : auto;
+  }
+  mat-card-image {
+    height: 200px;
+    margin: auto;
+  }
+
+  mat-card-content {
+    width: 100%;
+    margin: auto;
+  }
+
+  span{
+    color:rgb(221, 10, 10);
+  }
+
+
+  .container  {
+    margin: 100px;
+    display: flex;
+    position: relative;
+    top:10px;
+}
+
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .example-container {
+    display: flex;
+    flex-direction: row;
+    
+  }
+  
+  .example-container > * {
+    width: 60%;
+    top: 100px;
+  }
+  .mat-form-field{
+    font-size: 80%;
+        width:80%;
+        margin: auto;
+  }
+
+
+
+
+

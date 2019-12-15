@@ -1,0 +1,52 @@
+<div class="container" fxLayout="row" fxLayoutGap="10px">
+
+    <div fxFlex *ngIf="restaurant">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Restaurant details
+                    <h3>{{restaurant.name | uppercase}}</h3>
+                </mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src={{restaurant.image}}>
+            <mat-card-content>
+                <h1 *ngIf="restaurant.featured">Featured</h1>
+                <h4>{{restaurant.description }}</h4>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-mini-fab color="primary">👍</button>
+                <button mat-mini-fab>❤️</button>
+                <button mat-button (click)="goBack()">BACK</button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+    <div fxFlex *ngIf="restaurant">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Details
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h4>{{restaurant.description }}</h4>
+                <mat-grid-list cols="2" fxLayout="center center ">
+                    <img mat-card-image src={{restaurant.image2}} alt="" style="width: 280px; height: auto;">
+                    <img mat-card-image src={{restaurant.image3}} alt="" style="width: 280px; height: auto;">
+                    <img mat-card-image src={{restaurant.image4}} alt="" style="width: 280px; height: auto;">
+                    <img mat-card-image src={{restaurant.image5}} alt="" style="width: 280px; height: auto;">
+                </mat-grid-list>
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+
+    <div [hidden]="restaurant">
+        <mat-spinner></mat-spinner>
+        <h3> Loading..</h3>
+    </div>
+</div>
+
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+    <app-postcreate></app-postcreate>
+</div>

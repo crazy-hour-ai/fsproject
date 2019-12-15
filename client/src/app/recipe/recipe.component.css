@@ -1,0 +1,19 @@
+.container  {
+    margin: 100px;
+    display: flex;
+    position: relative;
+    top:10px;
+}
+
+mat-raised-button{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+mat-grid-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2vw;
+}

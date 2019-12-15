@@ -1,0 +1,21 @@
+<mat-card fxLayout="column">
+    <mat-form-field>
+        <textarea matInput row="6" [(ngModel)]="enterTitle"></textarea>
+
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput row="6" [(ngModel)]="enterContent"></textarea>
+    </mat-form-field>
+    <button color="primary" mat-raised-button (click)="addPost()">
+        Save
+    </button>
+</mat-card>
+
+<mat-accordion multi="true" *ngIf="posts.length>0">
+    <mat-expansion-panel *ngFor="let post of posts">
+        <mat-expansion-panel-header>
+            {{post.title}}
+        </mat-expansion-panel-header>
+        {{post.content}}
+    </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,91 @@
+<div fxFlex class="container">
+    <div [hidden]=" submitted">
+        <mat-card>
+            <mat-card-header>
+                <h1>
+                    Talk to us
+                </h1>
+            </mat-card-header>
+            <mat-card-title>
+                <form [formGroup]="contactFormGroup" (ngSubmit)="onSubmit()" #cform="ngForm" color="primary"
+                    fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1vw">
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="firstname" placeholder="First Name" required>
+                        <mat-error
+                            *ngIf="contactFormGroup.get('firstname').hasError('required') && contactFormGroup.get('firstname').touched">
+                            First name is required</mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="text" formControlName="lastname" placeholder="Last Name">
+                        <mat-error
+                            *ngIf="contactFormGroup.get('lastname').hasError('required') && contactFormGroup.get('lastname').touched">
+                            Last name is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput type="number" formControlName="tel" placeholder="Telephone Number" required>
+                        <mat-error
+                            *ngIf="contactFormGroup.get('tel').hasError('required') && contactFormGroup.get('tel').touched">
+                            Phone number is required
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="email" formControlName="email" placeholder="Email " required>
+                        <mat-error
+                            *ngIf="contactFormGroup.get('email').hasError('required') && contactFormGroup.get('email').touched">
+                            Email is required
+                        </mat-error>
+
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width">
+                        <textarea matInput formControlName="message" placeholder="Your Feedback" rows=5></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-select placeholder="How to contact you?" formControlName="contacttype">
+                            <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+                                {{ ctype }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div class="example-button-row">
+                        <p>
+                            <button mat-raised-button type="submit" color="primary">Submit</button>
+                        </p>
+                    </div>
+                </form>
+            </mat-card-title>
+
+        </mat-card>
+    </div>
+
+    <div [hidden]="showForm || submitted">
+        <h3>Submitting Form</h3>
+        <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="submitted">
+
+        <mat-card>
+            <mat-card-header>
+                <h3>
+                    <h3>Your Submission {{submitted.message}}</h3>
+                </h3>
+            </mat-card-header>
+            <mat-card-title>
+                <p>First Name: {{submittedresult.firstname}}</p>
+                <p>Last Name: {{submittedresult.lastname}}</p>
+                <p>Tel. Number: {{submittedresult.tel}}</p>
+                <p>Email: {{submittedresult.email}}</p>
+                <p>Feedback: {{submittedresult.message}}</p>
+
+                <p>Contact you by: {{submittedresult.contacttype}}</p>
+
+            </mat-card-title>
+        </mat-card>
+
+    </div>
+
+</div>

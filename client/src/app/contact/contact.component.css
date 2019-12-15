@@ -1,0 +1,26 @@
+.container  {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top:60px;
+}
+
+div{
+    width: 50%;
+    height: auto;
+    top:20px;
+    bottom: 40px;
+}
+
+mat-form-field{
+font-size: 80%;
+    width:80%;
+    margin: auto;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+

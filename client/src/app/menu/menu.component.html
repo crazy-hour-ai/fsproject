@@ -1,0 +1,25 @@
+<p>menu works!</p>
+<h1>New Restaurants</h1>
+
+<div class="container" fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex>
+        <mat-grid-list cols="3">
+            <mat-grid-tile *ngFor="let restaurant of restaurants; let i =index"
+                [routerLink]="['/restaurantdetails',restaurant.id]">
+                <mat-card>
+                    <img mat-card-image src={{restaurant.image}} alt="" style="height: 260px; width: auto;">
+                    <mat-card-content>
+                        <h3>{{restaurant.restaurant_name}}</h3>
+                        <h3>{{restaurant.category}}</h3>
+                        <br>
+                        <hr>
+                        <h4>⭐️⭐️⭐️⭐️⭐️</h4>
+                    </mat-card-content>
+                    <mat-card-actions>
+
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

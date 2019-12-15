@@ -1,0 +1,67 @@
+<form (ngSubmit)="searchSubmit()" #searchForm="ngForm" class="example-container" fxLayout="column"
+    fxLayoutAlign="center center">
+    <mat-form-field>
+        <mat-grid-list cols="6">
+            <input matInput placeholder="Search your favorite food... " type="text" color="primary" name="search"
+                [(ngModel)]="user.search" #search="ngModel">
+        </mat-grid-list>
+
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary">Search...</button>
+</form>
+
+<div class="container" fxLayout="row" fxLayoutGap="10px">
+    <mat-card fxFlex *ngIf="restaurant" class="restaurant">
+        <mat-card-header>
+            <mat-card-title>
+                <span *ngIf="restaurant.featured">Featured</span>
+                <h3>{{restaurant.name | uppercase}}</h3>
+            </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src={{restaurant.image}}>
+        <mat-card-content>
+            <h4>{{restaurant.description }}</h4>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex *ngIf="promotion" class="promotion">
+        <mat-card-header>
+            <mat-card-title>
+                Promotions
+                <h3>{{promotion.name | uppercase}}</h3>
+            </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src={{promotion.image}}>
+        <mat-card-content>
+            <h4>{{promotion.description }}</h4>
+        </mat-card-content>
+    </mat-card>
+</div>
+<br>
+<hr>
+<h2 [hidden] *ngIf="totalresult==0">Are you hungry🙀? Try again...</h2>
+<h2 [hidden] *ngIf="totalresult">{{totalresult }} result</h2>
+
+<div class="container-search" fxLayout="row" fxLayoutGap="10px">
+    <div fxFlex>
+        <mat-grid-list cols="3">
+            <mat-grid-tile *ngFor="let restaurant of searchresult; let i =index"
+                [routerLink]="['/restaurantdetails',restaurant.id]">
+                <mat-card>
+                    <img mat-card-image src={{restaurant.image}} alt="" style="height: 260px; width: auto;">
+                    <mat-card-content>
+
+                        <h3>{{restaurant.name}}</h3>
+                        <h3>{{restaurant.category}}</h3>
+                        <br>
+                        <hr>
+                        <h4>⭐️⭐️⭐️⭐️⭐️</h4>
+                    </mat-card-content>
+                    <mat-card-actions>
+
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

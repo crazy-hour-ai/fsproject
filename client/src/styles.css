@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+        background-color:rgb(223, 223, 223);
+
+}
+
+
+/* .mat-focused .mat-form-field-label{ color: #ee6e73; } .mat-focused .mat-form-field-underline .mat-form-field-ripple{ background: #ee6e73; } */
+
+mat-form-field.mat-form-field {
+    font-size: 16px;
+    /* color: rgb(255, 0, 55); */
+    /* background-color:rgb(223, 223, 223); */
+  }
+

@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    Login
+    <button mat-button mat-dialog-close></button>
+</mat-toolbar>
+
+
+<form novalidate (ngSubmit)="onSubmit()" #loginForm="ngForm" fxLayout="column" fxLayoutAlign="center center"
+    fxLayoutGap="20px">
+    <mat-dialog-content>
+        <p>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Username" name="username" [(ngModel)]="user.username"
+                    #username="ngModel" required>
+                <mat-error *ngIf="username?.errors?.required">Username is required</mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="user.password"
+                    #password="ngModel" required>
+                <mat-error *ngIf="password?.errors?.required">Password is required</mat-error>
+            </mat-form-field>
+        </p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <span class="flex-spacer"></span>
+        <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        <button type="submit" mat-raised-button color="primary" class="background-primary text-floral-white"
+            [disabled]="loginForm.form.invalid">Login</button>
+    </mat-dialog-actions>
+</form>
